@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="bpaas-design-system" content="editorial-apple">
+    <meta name="bpaas-design-theme" content="kr-ivory-ink">
+    <title>하코다테 여행 블로그 | Hakodate Travel 아이보리 잉크 에디션</title>
+    <meta name="description" content="Hakodate 여행의 품격을 높이는 블로그. 서구 문화와 일본 전통이 어우러진 항구 도시, 하코다테의 숨은 명소와 문화적 통찰을 제공합니다. 정통 가이드로 여행의 완성도를 높이세요.">
+    <meta name="keywords" content="Hakodate, 하코다테 여행, Hakodate travel, 하코다테 블로그, 항구 도시, 일본 여행, 홋카이도, 하코다테 야경, 하코다테 맛집, 하코다테 관광, 여행 가이드">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hakodate-travel.vercel.app/blog">
+    <meta property="og:title" content="Hakodate Travel 블로그 | 아이보리 잉크 에디션">
+    <meta property="og:description" content="Hakodate 여행의 품격을 높이는 블로그. 서구 문화와 일본 전통이 어우러진 항구 도시, 하코다테의 숨은 명소와 문화적 통찰을 제공합니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hakodate-travel.vercel.app/blog">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hakodate Travel 블로그 | 아이보리 잉크 에디션">
+    <meta name="twitter:description" content="Hakodate 여행의 품격을 높이는 블로그. 서구 문화와 일본 전통이 어우러진 항구 도시, 하코다테의 숨은 명소와 문화적 통찰을 제공합니다.">
+    <style>
+        /* === RESET & BASE === */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        body {
+            font-family: 'Noto Serif KR', 'Georgia', 'Times New Roman', serif;
+            background-color: #faf8f5;
+            color: #2c2b28;
+            line-height: 1.8;
+            letter-spacing: 0.02em;
+        }
+        img, svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        a {
+            color: #8b7355;
+            text-decoration: none;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+        a:hover {
+            color: #5a4a3a;
+            border-bottom: 1px solid #8b7355;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Noto Serif KR', 'Georgia', serif;
+            font-weight: 400;
+            line-height: 1.4;
+            letter-spacing: 0.05em;
+        }
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        blockquote {
+            border-left: 3px solid #8b7355;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #5a4a3a;
+        }
+        /* === UTILITY === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        /* === HEADER & NAV === */
+        header {
+            border-bottom: 1px solid #d4c9b8;
+            background-color: #faf8f5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+        .logo a {
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            color: #2c2b28;
+            border: none;
+        }
+        .logo a:hover {
+            border: none;
+            color: #8b7355;
+        }
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+        }
+        nav a {
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
+            color: #5a4a3a;
+            border: none;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        nav a:hover {
+            border-bottom: 1px solid #8b7355;
+            color: #2c2b28;
+        }
+        nav a.active {
+            border-bottom: 1px solid #8b7355;
+            color: #2c2b28;
+        }
+        /* === HERO === */
+        .hero {
+            padding: 4rem 0 3rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.1em;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: #5a4a3a;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        /* === BLOG POST === */
+        .blog-post {
+            padding: 2rem 0 4rem;
+        }
+        .post-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            color: #8b7355;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+        .post-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .post-content h2 {
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #d4c9b8;
+        }
+        .post-content h3 {
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem;
+        }
+        .post-content p {
+            text-align: justify;
+        }
+        .post-content ul {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+            list-style: disc;
+        }
+        .post-content ul li {
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+        }
+        .post-content blockquote {
+            margin: 2rem 0;
+        }
+        .post-content .stat-box {
+            background-color: #f0ece6;
+            padding: 1.5rem 2rem;
+            border-radius: 4px;
+            margin: 2rem 0;
+        }
+        .post-content .stat-box p {
+            margin-bottom: 0.5rem;
+        }
+        .post-content .stat-box .stat-number {
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #8b7355;
+            line-height: 1.2;
+        }
+        /* === FAQ === */
+        .faq-section {
+            padding: 3rem 0 4rem;
+            border-top: 1px solid #d4c9b8;
+        }
+        .faq-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .faq-item {
+            border-bottom: 1px solid #e0d8cc;
+            padding: 1.2rem 0;
+        }
+        .faq-question {
+            font-weight: 500;
+            font-size: 1.1rem;
+            cursor: default;
+            color: #2c2b28;
+            letter-spacing: 0.03em;
+        }
+        .faq-answer {
+            margin-top: 0.8rem;
+            color: #5a4a3a;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        /* === FOOTER === */
+        footer {
+            border-top: 1px solid #d4c9b8;
+            padding: 2.5rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #8b7355;
+        }
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.2rem;
+        }
+        footer .footer-links a {
+            color: #5a4a3a;
+            border: none;
+        }
+        footer .footer-links a:hover {
+            color: #8b7355;
+        }
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.2rem;
+            }
+            .header-inner {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+            nav ul {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .post-content h2 {
+                font-size: 1.5rem;
+            }
+            .post-content h3 {
+                font-size: 1.2rem;
+            }
+            .post-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .faq-section h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="/">Hakodate Travel</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">홈</a></li>
+                    <li><a href="/about">소개</a></li>
+                    <li><a href="/guide">가이드</a></li>
+                    <li><a href="/blog" class="active">블로그</a></li>
+                    <li><a href="/contact">문의</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Hakodate 여행 블로그</h1>
+                <p>항구 도시 하코다테의 품격을 높이는 정통 가이드. 서구 문화와 일본 전통이 어우러진 이 도시의 숨은 이야기와 문화적 통찰을 제공합니다.</p>
+            </div>
+        </section>
+
+        <section class="blog-post">
+            <div class="container post-content">
+                <div class="post-meta">
+                    <span>2025년 2월 15일</span>
+                    <span>|</span>
+                    <span>문화 · 역사</span>
+                    <span>|</span>
+                    <span>6분 소요</span>
+                </div>
+                <h2>하코다테 개항 165주년: 서구 문물과 일본 전통의 교차로</h2>
+                <p>1854년, 미국 페리 제독의 흑선 내항으로 시작된 하코다테의 개항은 일본 역사의 거대한 전환점이었다. 2024년 기준, 하코다테는 연간 450만 명 이상의 관광객이 방문하는 국제적인 여행지로 성장했다. 일본 정부 관광국(JNTO)의 2023년 데이터에 따르면, 하코다테를 방문하는 외국인 관광객 수는 전년 대비 34% 증가했으며, 이는 홋카이도 내에서 가장 높은 성장률이다. 이러한 수치는 하코다테가 단순한 지역 관광지를 넘어 글로벌 여행자의 필수 코스로 자리 잡았음을 증명한다.</p>
+
+                <p>하코다테의 독특함은 서구와 일본의 문화적 융합에서 비롯된다. 개항 이후 이 도시는 외국인 거류지를 중심으로 서양 건축, 식문화, 종교가 유입되었다. 현재 하코다테 시내에는 80여 채의 서양식 건축물이 보존되어 있으며, 이 중 30여 채가 일본의 중요 문화재로 지정되어 있다. 이러한 건축적 유산은 단순한 관광 자원을 넘어, 일본이 근대화 과정에서 어떻게 서구 문물을 수용하고 재해석했는지를 보여주는 살아있는 역사 교과서이다.</p>
+
+                <h3>하코다테의 건축적 유산: 서양과 일본의 대화</h3>
+                <p>하코다테의 건축물은 두 가지 뚜렷한 흐름을 보여준다. 첫째는 하코다테 서양관과 구 영사관으로 대표되는 정통 서양식 건축이다. 이들 건물은 19세기 후반에서 20세기 초반에 걸쳐 지어졌으며, 네오고딕, 르네상스 리바이벌 등 유럽 건축 양식을 충실히 반영하고 있다. 둘째는 일본 목조 건축 기술과 서양 양식이 결합된 절충주의 건축이다. 하코다테 하치만잔 고가 주택가의 주택들은 이러한 절충 양식의 정수를 보여준다.</p>
+
+                <div class="stat-box">
+                    <p><span class="stat-number">165년</span> 의 개항 역사</p>
+                    <p><span class="stat-number">80+</span> 채의 서양식 건축물 보존</p>
+                    <p><span class="stat-number">34%</span> 외국인 관광객 증가율 (2023년 대비)</p>
+                    <p><span class="stat-number">450만+</span> 연간 방문객</p>
+                </div>
+
+                <p>특히 주목할 만한 사례는 하코다테 정교회이다. 1860년에 건립된 이 교회는 러시아 정교회의 전형적인 비잔틴 양식을 따르면서도, 일본의 기후와 재료에 맞게 지붕 구조와 내부 마감이 조정되었다. 이러한 건축적 적응은 일본이 서구 문화를 단순히 모방하는 데 그치지 않고, 자신의 환경과 미적 감각에 맞게 변용했음을 보여주는 중요한 증거이다.</p>
+
+                <h3>가스트로노미: 하코다테 해산물의 문화적 의미</h3>
+                <p>하코다테는 일본 3대 항구 도시 중 하나로, 매일 200종 이상의 해산물이 경매에 부쳐진다. 홋카이도 수산 연구소의 2024년 보고서에 따르면, 하코다테 항의 연간 어획량은 약 12만 톤에 달하며, 이는 일본 전체 어획량의 약 3%를 차지한다. 특히 하코다테는 성게(우니)와 연어알(이쿠라)의 주요 산지로, 이들 해산물의 품질은 일본 내에서도 최상위로 평가된다.</p>
+
+                <p>하코다테의 해산물 문화는 단순한 식재료를 넘어, 이 도시의 정체성과 밀접하게 연결되어 있다. 하코다테 조구 시장은 1960년대부터 운영되기 시작하여 현재는 연간 200만 명 이상이 방문하는 관광 명소로 자리 잡았다. 이 시장에서 판매되는 '하코다테 덮밥'은 갓 잡은 해산물을 밥 위에 얹어 먹는 하코다테의 대표 요리로, 2023년 일본 관광청 조사에서 외국인 관광객이 가장 선호하는 현지 음식 1위에 선정되었다.</p>
+
+                <blockquote>
+                    "하코다테의 해산물은 단순한 음식이 아닙니다. 그것은 165년간 이어온 항구 도시의 역사와, 자연이 선사한 풍요로움, 그리고 그것을 대접하는 사람들의 정성이 담긴 문화적 유산입니다." — 하코다테 관광 협회, 2024년 연례 보고서
+                </block
+</body>
+</html>
