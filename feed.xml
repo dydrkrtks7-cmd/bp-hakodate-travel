@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title><![CDATA[Hakodate Hakodate travel 안내]]></title>
-  <link>https://hakodate-travel-local.pbn-builder.xyz</link>
-  <description><![CDATA[Hakodate 정보 관련 최신 뉴스, 서비스 안내, 리얼 후기 정보를 신속하게 전달하는 공식 RSS 피드입니다.]]></description>
+  <title><![CDATA[아현 아현 풀싸롱 추천 가이드]]></title>
+  <link>https://ahyeon-fullsalon-note.node-link.shop</link>
+  <description><![CDATA[아현 풀싸롱 관련 최신 뉴스, 서비스 안내, 리얼 후기 정보를 신속하게 전달하는 공식 RSS 피드입니다.]]></description>
   <language>ko-KR</language>
-  <pubDate>Thu, 28 May 2026 00:30:40 GMT</pubDate>
-  <lastBuildDate>Thu, 28 May 2026 00:30:40 GMT</lastBuildDate>
-  <atom:link href="https://hakodate-travel.vercel.app/feed.xml" rel="self" type="application/rss+xml" />
+  <pubDate>Thu, 30 Jul 2026 09:05:43 GMT</pubDate>
+  <lastBuildDate>Thu, 30 Jul 2026 09:05:43 GMT</lastBuildDate>
+  <atom:link href="https://ahyeon-fullsalon-note.node-link.shop/feed.xml" rel="self" type="application/rss+xml" />
   
     <item>
-      <title><![CDATA[Hakodate Hakodate travel 안내 - 공식 홈페이지 오픈 안내]]></title>
-      <link>https://hakodate-travel-local.pbn-builder.xyz/</link>
-      <guid isPermaLink="true">https://hakodate-travel.vercel.app/</guid>
-      <description><![CDATA[Hakodate 정보 관련 최신 뉴스, 서비스 안내, 리얼 후기 정보를 신속하게 전달하는 공식 RSS 피드입니다.]]></description>
-      <pubDate>Thu, 28 May 2026 00:30:40 GMT</pubDate>
+      <title><![CDATA[아현 아현 풀싸롱 추천 가이드 - 공식 홈페이지 오픈 안내]]></title>
+      <link>https://ahyeon-fullsalon-note.node-link.shop/</link>
+      <guid isPermaLink="true">https://ahyeon-fullsalon-note.node-link.shop/</guid>
+      <description><![CDATA[아현 풀싸롱 관련 최신 뉴스, 서비스 안내, 리얼 후기 정보를 신속하게 전달하는 공식 RSS 피드입니다.]]></description>
+      <pubDate>Thu, 30 Jul 2026 09:05:43 GMT</pubDate>
     </item>
 </channel>
 </rss>
