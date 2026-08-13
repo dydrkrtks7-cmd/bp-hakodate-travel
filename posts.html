@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (1/2) · hakodate-travel</title>
+  <meta name="description" content="hakodate-travel에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://ahyeon-fullsalon-note.node-link.shop/posts.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+/* === RESET & BASE === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body { font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background-color: #faf8f5; color: #2c2c2c; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+img, svg { max-width: 100%; height: auto; display: block; }
+a { color: #8b7355; text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: #5a4a3a; }
+h1, h2, h3, h4 { font-family: 'Playfair Display', 'Noto Sans KR', serif; font-weight: 400; letter-spacing: 0.02em; }
+h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 1.5rem; }
+h2 { font-size: 2rem; line-height: 1.3; margin-bottom: 1.2rem; position: relative; padding-bottom: 0.8rem; }
+h2::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 2px; background-color: #8b7355; }
+h3 { font-size: 1.4rem; line-height: 1.4; margin-bottom: 1rem; }
+h4 { font-size: 1.1rem; line-height: 1.5; margin-bottom: 0.8rem; }
+p { margin-bottom: 1.2rem; font-weight: 300; }
+ul { list-style: none; margin-bottom: 1.5rem; }
+ul li { padding-left: 1.5rem; position: relative; margin-bottom: 0.5rem; }
+ul li::before { content: '—'; position: absolute; left: 0; color: #8b7355; }
+blockquote { border-left: 3px solid #8b7355; padding: 1.2rem 1.5rem; margin: 1.5rem 0; background: rgba(139, 115, 85, 0.05); font-style: italic; }
+
+/* === UTILITY === */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+
+/* === HEADER & NAV === */
+header { background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%); color: #faf8f5; padding: 1.2rem 0; border-bottom: 1px solid rgba(250, 248, 245, 0.1); }
+.header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+.logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 400; letter-spacing: 0.08em; }
+.logo a { color: #faf8f5; }
+.logo a:hover { color: #c4b59a; }
+nav ul { display: flex; gap: 2rem; margin-bottom: 0; }
+nav ul li { padding-left: 0; margin-bottom: 0; }
+nav ul li::before { display: none; }
+nav a { color: #c4b59a; font-size: 0.9rem; font-weight: 300; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.4rem 0; border-bottom: 1px solid transparent; transition: all 0.3s ease; }
+nav a:hover, nav a.active { color: #faf8f5; border-bottom-color: #8b7355; }
+
+/* === HERO === */
+.hero { padding: 5rem 0 4rem; background: linear-gradient(180deg, #faf8f5 0%, #f0ece6 100%); text-align: center; }
+.hero h1 { font-size: 3.2rem; }
+.hero .subtitle { font-size: 1.1rem; color: #6b5b4b; max-width: 600px; margin: 0 auto; font-weight: 300; letter-spacing: 0.05em; }
+
+/* === SECTION === */
+.section { padding: 4rem 0; }
+.section-alt { background-color: #f0ece6; }
+.section-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+
+/* === CARDS === */
+.card { background: #fff; padding: 2rem; border: 1px solid #e0d8ce; transition: box-shadow 0.3s ease; }
+.card:hover { box-shadow: 0 4px 20px rgba(44, 44, 44, 0.08); }
+.card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: #2c2c2c; }
+.card .meta { font-size: 0.85rem; color: #8b7355; margin-bottom: 1rem; font-weight: 400; letter-spacing: 0.05em; }
+.card p { font-size: 0.95rem; }
+
+/* === STATS === */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; padding: 3rem 0; }
+.stat-number { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: #8b7355; line-height: 1; margin-bottom: 0.5rem; }
+.stat-label { font-size: 0.9rem; color: #6b5b4b; font-weight: 300; letter-spacing: 0.05em; }
+
+/* === TABLE === */
+.data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+.data-table th { background: #2c2c2c; color: #faf8f5; padding: 0.8rem 1rem; text-align: left; font-weight: 400; letter-spacing: 0.05em; }
+.data-table td { padding: 0.8rem 1rem; border-bottom: 1px solid #e0d8ce; }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: rgba(139, 115, 85, 0.05); }
+
+/* === FAQ === */
+.faq-item { border-bottom: 1px solid #e0d8ce; padding: 1.2rem 0; }
+.faq-question { font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faq-question::after { content: '+'; font-size: 1.2rem; color: #8b7355; }
+.faq-answer { margin-top: 1rem; display: none; font-weight: 300; }
+.faq-item.active .faq-question::after { content: '−'; }
+.faq-item.active .faq-answer { display: block; }
+
+/* === FOOTER === */
+footer { background: #2c2c2c; color: #c4b59a; padding: 3rem 0 2rem; text-align: center; }
+footer p { font-size: 0.85rem; font-weight: 300; margin-bottom: 0.5rem; }
+footer .tel-link { color: #faf8f5; font-weight: 400; }
+footer .tel-link:hover { color: #8b7355; }
+
+/* === RESPONSIVE 768 === */
+@media (max-width: 768px) {
+ .container { padding: 0 1.2rem; }
+ h1 { font-size: 2rem; }
+ h2 { font-size: 1.6rem; }
+ .hero h1 { font-size: 2.2rem; }
+ .header-inner { flex-direction: column; gap: 1rem; }
+ nav ul { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+ .section-grid { grid-template-columns: 1fr; gap: 2rem; }
+ .stats { grid-template-columns: 1fr; gap: 1.5rem; }
+ .data-table { font-size: 0.85rem; }
+ .data-table th, .data-table td { padding: 0.6rem 0.8rem; }
+}
+</style>
+  <meta property="og:title" content="글 목록 (1/2) · hakodate-travel">
+  <meta property="og:description" content="hakodate-travel에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://ahyeon-fullsalon-note.node-link.shop/posts.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+<div class="container header-inner">
+<div class="logo"><a href="/">Hakodate Travel</a></div>
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/info" class="active">Info</a></li>
+<li><a href="/places">Places</a></li>
+<li><a href="/dining">Dining</a></li>
+<li><a href="/contact">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 33개 · 1/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0023.html">Hakodate travel 안내: 마사지 서비스의 두 경로, 어느 것을 택할 것인가</a>
+        <p class="post-item__summary">&quot;여긴 왜 이렇게 예약이 복잡하지?&quot; 동대문 마사지 업소를 찾다 보면 이런 질문에 자주 맞닥뜬다. 어떤 곳은 직접 방문해야 하고, 어떤 곳은 전화 예약만 받는다. 온라인 결제를 받는 곳도 있고, 현</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0024.html">Hakodate travel 안내: 마포 프라이빗 라운지, 장소와 예산의 함정 피하기</a>
+        <p class="post-item__summary">마포 지역에서 프라이빗 라운지를 찾는 사람들 중 절반은 합정을 먼저 고려하고, 나머지 절반은 강남을 나중에 비교한다. 이 선택이 최종 만족도를 크게 갈라놓는다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0025.html">Hakodate travel 안내: 도메인 지수와 앵커 텍스트, 회복 속도의 차이</a>
+        <p class="post-item__summary">도메인 지수 하락과 상승은 같은 속도로 일어나지 않는다. 떨어지는 건 빠르고 올라오는 건 느리다. 지수가 급격히 손상된 경우와 완만하게 하락한 경우도 회복 방식이 다르다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0026.html">Hakodate travel 안내: 백링크 주스의 지속성, 모두 같지 않다는 진실</a>
+        <p class="post-item__summary">백링크의 효과는 시간이 지나면서 약해진다. 하지만 약해지는 속도는 링크의 출처에 따라 완전히 다르다. 낮은 신뢰도 도메인에서 들어온 링크의 효과는 2~3주 만에 50% 이상 감소한다. 반면 높은 신</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0027.html">Hakodate travel 안내: 럭셔리 가라오케 예약, 시간과 인원 선택의 기준</a>
+        <p class="post-item__summary">마포의 럭셔리 가라오케는 크게 두 가지로 나뉜다. 하나는 시설 중심이고, 다른 하나는 경험 중심이다. 시설 중심 가게는 인테리어가 화려하고 음향이 좋다. 예약이 비교적 쉽고 가격대가 명확하다. 하지</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0028.html">Hakodate travel 안내: 마포 유흥 가격 투명성, 정보 찾기의 순서</a>
+        <p class="post-item__summary">&quot;최근 임차료 인상으로 가격이 조정되었습니다. 문의 주세요.&quot; 이런 문구를 자주 본다. 투명성이 있어 보이지만, 실은 개별 협상을 유도하는 방식이다. 왜 그럴까?</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0029.html">Hakodate travel 안내: 검색 엔진 페널티에서 회복하는 두 가지 방법</a>
+        <p class="post-item__summary">페널티 상황에서 초기 대응이 갈라놓는 두 경로가 있다. 첫 번째는 문제를 빠르게 인식하고 원인을 파악하는 경로다. 이 경로에서는 회복이 2개월에서 4개월이다. 두 번째는 무시하거나 지연하다가 나중에</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0030.html">Hakodate travel 안내: 코인노래방 방음 시설, 초보자의 선택과 단골의 이유</a>
+        <p class="post-item__summary">&quot;이 정도면 충분하겠지&quot; 싶은 마포의 코인노래방은 생각보다 소음 차단이 약하다. 옆 방의 노래가 들리고, 아래층의 발소리가 들린다. 이런 경험을 한 사람과 그렇지 않은 사람의 평가는 완전히 다르다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0031.html">Hakodate travel 안내: 마포 홍대 로컬 럭셔리 밤문화를 구분하는 기준</a>
+        <p class="post-item__summary">홍대 밤문화라고 하면 보통 떠오르는 것들이 있다. 그런데 진짜 럭셔리한 선택과 그냥 비싼 선택은 다르다는 걸 알아차리는 데 한두 번 실수가 필요하다. 나도 처음엔 가격표와 분위기만 봤는데, 몇 달 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0032.html">Hakodate travel 안내: 마포 셔츠룸의 리얼 후기를 판단하는 방법</a>
+        <p class="post-item__summary">온라인 후기와 현장은 항상 다르다. 처음엔 평점만 봤다. 뭐 이 정도면 좋겠지 싶고 예약했는데, 세 번째쯤 패턴을 알아챘다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0033.html">Hakodate travel 안내: 4</a>
+        <p class="post-item__summary">자동화 시스템은 한 가지 영상처럼 보여주고 현실은 또 다르다. &quot;24시간 자동으로 돈 번다&quot;는 홍보와 실제 운영 사이에는 엄청난 간격이 있다. 한쪽은 이상적 조건에서의 이론이고, 다른 쪽은 현장의 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0034.html">Hakodate travel 안내: 구글 틈새 키워드를 외환 거래에 활용할 수 없는 이유</a>
+        <p class="post-item__summary">일반적으로 &quot;검색량이 적으면 수익이 크다&quot;는 얘기가 있다. 틈새 시장, 롱테일 키워드, 경쟁 저지역이라고 부르는 영역들이다. 그런데 외환 거래에서 이 논리는 완전히 깨진다. 이유를 찾아보면 구조적이</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0035.html">Hakodate travel 안내: 셔츠룸 예약 전에 꼭 따져야 할 신호들</a>
+        <p class="post-item__summary">마포 셔츠룸들 중에 일부는 뭔가 다르다. 같은 가격인데 후기와 현장이 일치하는 곳과 괴리 있는 곳이 있다. 이건 운이 아니라 선택 전에 볼 수 있는 신호들이다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0036.html">Hakodate travel 안내: 셔츠룸 예약, 처음 선택이 전체 경험을 결정하는 이유</a>
+        <p class="post-item__summary">마포의 셔츠룸 선택 기준은 시간이 지나면서 변한다. 처음에는 &quot;어디나 다 비슷하겠지&quot;라고 생각하다가, 서너 번 다니면 &quot;아, 처음 선택이 중요했네&quot;라는 걸 깨닫는다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0037.html">Hakodate travel 안내: 구글 크롤 버짓 최적화가 모든 업체에게 필요한 이유</a>
+        <p class="post-item__summary">많은 업체들이 모르는 사실이 하나 있다. 구글이 당신의 사이트에 제공하는 &quot;크롤 버짓&quot;은 제한되어 있다는 것. 매일 접근할 수 있는 페이지 수와 시간이 정해져 있다는 뜻이다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0038.html">Hakodate travel 안내: 마포 대형 룸 노래방 선택에서 피해야 할 가장 큰 실수</a>
+        <p class="post-item__summary">&quot;대형 룸 노래방&quot; 검색을 하면 보통 뜨는 건 가격이다. 시간당 가격, 인당 최소 인원, 추가 요금. 처음엔 이것만 본다. 그런데 예약하고 나서 후회하는 건, 정말 다른 이유들이다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0039.html">Hakodate travel 안내: 셔츠룸 웹사이트의 불리한 신호를 읽는 법</a>
+        <p class="post-item__summary">&quot;셔츠룸 사이트&quot;라고 검색했을 때 나오는 곳들, 다 같진 않다. 비슷한 가격인데 사이트 디자인과 정보 구성이 경쓸린 곳과 그렇지 않은 곳이 있다. 이 차이가 실제 서비스 품질을 말해준다는 걸 모르는</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260719-0040.html">Hakodate travel 안내: 마포 홍대 가라오케 예약 전에 물어야 할 질문들</a>
+        <p class="post-item__summary">금요일 저녁 회사 팀과 가라오케 예약을 하려고 했다. 예약하기 전에 &quot;혹시 예약이 되나&quot; 정도만 물었었다. 지금은 훨씬 많이 물어본다. 왜냐하면 같은 시간대, 비슷한 가격인데도 경험이 완전히 달랐기</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0188.html">Hakodate travel 안내와 비교하는 공덕 셔츠룸 추천정보 가이드</a>
+        <p class="post-item__summary">여러분은 낯선 장소에서 새로운 서비스를 이용할 때 가장 먼저 무엇을 확인하시나요? Hakodate travel 안내 정보를 통해 여행지를 미리 파악하듯, 셔츠룸과 같은 특정 시설을 방문할 때도 객관</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0189.html">Hakodate travel 안내와 함께 살펴보는 현명한 연남 유흥 추천정보 확인법</a>
+        <p class="post-item__summary">해외 여행지의 정보를 찾을 때와 마찬가지로 연남 지역의 밤 문화를 탐색할 때도 체계적인 접근이 필요합니다. 처음 방문하는 장소라면 무작정 발걸음을 옮기기보다 온라인상의 정보들을 면밀히 검토하는 과정</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <span class="pager__current">1</span>
+      <a class="pager__link" href="posts-2.html">2</a>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
