@@ -16,6 +16,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://ahyeon-fullsalon-note.node-link.shop/posts.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://ahyeon-fullsalon-note.node-link.shop/posts/gemini-coverage-20260719-0025.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -52,11 +57,6 @@
   </url>
   <url>
     <loc>https://ahyeon-fullsalon-note.node-link.shop/posts/gemini-coverage-20260721-0378.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ahyeon-fullsalon-note.node-link.shop/posts.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
